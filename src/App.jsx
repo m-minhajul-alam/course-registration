@@ -6,10 +6,35 @@ import Header from './component/Header/Header'
 
 function App() {
   const [cards, setCard] = useState([]);
+  const [remainingCreditHour, setRemainingCreditHour] = useState(0)
+  const [totalCreditHour, setTotalCreditHour] = useState(0)
+  const [totalPrice, setTotalPrice] = useState(0)
 
   const handelSelectCard = (card) => {
-    const newCards = [...cards, card];
-    setCard(newCards);
+    const isExist = cards.find((item) => item.id == card.id);
+
+    let priceCount = card.price;
+    let creditCount = card.credit;
+
+    if (isExist) {
+      return alert("ache vai");
+    }
+    else {
+
+      cards.forEach((item) => {
+        priceCount = priceCount + item.price;
+        creditCount = creditCount + item.credit;
+      })
+
+      const remainingCreditHour = 20 - creditCount;
+
+      setRemainingCreditHour(remainingCreditHour);
+      setTotalCreditHour(creditCount);
+      setTotalPrice(priceCount);
+
+      const newCards = [...cards, card];
+      setCard(newCards);
+    }
   }
 
   return (
@@ -19,7 +44,7 @@ function App() {
       <div className="flex gap-2">
 
         <Cards handelSelectCard={handelSelectCard}></Cards>
-        <Carts cards={cards}></Carts>
+        <Carts cards={cards} remainingCreditHour={remainingCreditHour} totalCreditHour={totalCreditHour} totalPrice={totalPrice}></Carts>
 
       </div>
     </>
