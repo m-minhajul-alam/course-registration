@@ -21,7 +21,7 @@ const Cards = () => {
                 <div className="grid grid-cols-3 gap-2 w-3/4">
 
                     {
-                        cards.map(card => <Card key={card.id} card={card}></Card>)
+                        cards && cards.map(card => <Card key={card.id} card={card}></Card>)
                     }
 
                 </div>
