@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
+import { FaBookOpen, FaDollarSign } from 'react-icons/fa';
 
-const Card = ({ card }) => {
+const Card = ({ card, handelSelectCard }) => {
 
     const { cover_img, title, description, price, credit } = card
 
@@ -18,28 +19,29 @@ const Card = ({ card }) => {
                     <p className="text-xs font-normal text-gray-400 my-3">{description}</p>
                     <div className="flex items-center justify-between">
                         <div className="flex items-center">
-                            <img className="w-4" src="./../../src/assets/icons/dollar-sign.png" alt="" />
+                            <span><FaDollarSign></FaDollarSign></span>
                             <p className="ml-2 text-sm font-medium text-gray-400">{`Price: ${price}`}</p>
                         </div>
                         <div className="flex items-center">
-                            <img className="w-4" src="./../../src/assets/icons/Frame.png" alt="" />
+                            <span><FaBookOpen></FaBookOpen></span>
                             <p className="ml-2 text-sm font-medium text-gray-400">{`Cradit: ${credit}hr`}</p>
                         </div>
                     </div>
                 </div>
 
                 <div className='mt-auto'>
-                    <button className="text-sm text-white font-semibold py-2 w-full rounded-lg bg-blue-500 mt-auto">Select</button>
+                    <button onClick={() => handelSelectCard(card)} className="text-sm text-white font-semibold py-2 w-full rounded-lg bg-blue-500 mt-auto">Select</button>
                 </div>
-                
+
             </div>
 
         </div>
     );
 };
 
-Card.proptypes = {
+Card.propTypes = {
     card: PropTypes.object,
+    handelSelectCard: PropTypes.func
 }
 
 export default Card;
