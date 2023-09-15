@@ -1,4 +1,4 @@
-const SidePanel = () => {
+const Cart = () => {
 
     return (
         <div>
@@ -9,4 +9,4 @@ const SidePanel = () => {
     );
 };
 
-export default SidePanel;
+export default Cart;
