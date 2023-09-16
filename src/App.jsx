@@ -4,6 +4,9 @@ import Cards from './component/Cards/Cards'
 import Carts from './component/Carts/Carts'
 import Header from './component/Header/Header'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
   const [cards, setCard] = useState([]);
   const [remainingCreditHour, setRemainingCreditHour] = useState(0)
@@ -17,9 +20,17 @@ function App() {
     let creditCount = card.credit;
 
     if (isExist) {
-      return alert("ache vai");
-    }
-    else {
+      return toast.success('This item is alredy added!', {
+        position: "bottom-left",
+        autoClose: 700,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        theme: "colored"
+      });
+
+    } else {
 
       cards.forEach((item) => {
         priceCount = priceCount + item.price;
@@ -28,12 +39,31 @@ function App() {
 
       const remainingCreditHour = 20 - creditCount;
 
-      setRemainingCreditHour(remainingCreditHour);
-      setTotalCreditHour(creditCount);
-      setTotalPrice(priceCount);
+      if (creditCount > 20 && remainingCreditHour < 20) {
 
-      const newCards = [...cards, card];
-      setCard(newCards);
+        return toast.warn('You reach your credit limit!', {
+          position: "bottom-left",
+          autoClose: 700,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          theme: "colored"
+        });
+
+
+      } else {
+        setRemainingCreditHour(remainingCreditHour);
+        setTotalCreditHour(creditCount);
+        setTotalPrice(priceCount);
+
+        const newCards = [...cards, card];
+        setCard(newCards);
+
+      }
+
+
+
     }
   }
 
@@ -46,6 +76,9 @@ function App() {
         <Cards handelSelectCard={handelSelectCard}></Cards>
         <Carts cards={cards} remainingCreditHour={remainingCreditHour} totalCreditHour={totalCreditHour} totalPrice={totalPrice}></Carts>
 
+      </div>
+      <div>
+        <ToastContainer></ToastContainer>
       </div>
     </>
   )
