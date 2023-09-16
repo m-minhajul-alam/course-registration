@@ -9,9 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [cards, setCard] = useState([]);
-  const [remainingCreditHour, setRemainingCreditHour] = useState(0)
-  const [totalCreditHour, setTotalCreditHour] = useState(0)
-  const [totalPrice, setTotalPrice] = useState(0)
+  const [remainingCreditHour, setRemainingCreditHour] = useState(20);
+  const [totalCreditHour, setTotalCreditHour] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const handelSelectCard = (card) => {
     const isExist = cards.find((item) => item.id == card.id);
@@ -20,9 +20,9 @@ function App() {
     let creditCount = card.credit;
 
     if (isExist) {
-      return toast.success('This item is alredy added!', {
+      return toast.success('This course is alredy added!', {
         position: "bottom-left",
-        autoClose: 700,
+        autoClose: 1000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnHover: false,
@@ -31,7 +31,6 @@ function App() {
       });
 
     } else {
-
       cards.forEach((item) => {
         priceCount = priceCount + item.price;
         creditCount = creditCount + item.credit;
@@ -43,7 +42,7 @@ function App() {
 
         return toast.warn('You reach your credit limit!', {
           position: "bottom-left",
-          autoClose: 700,
+          autoClose: 1000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnHover: false,
@@ -61,21 +60,15 @@ function App() {
         setCard(newCards);
 
       }
-
-
-
     }
   }
 
   return (
     <>
       <Header></Header>
-
       <div className="flex gap-2">
-
         <Cards handelSelectCard={handelSelectCard}></Cards>
         <Carts cards={cards} remainingCreditHour={remainingCreditHour} totalCreditHour={totalCreditHour} totalPrice={totalPrice}></Carts>
-
       </div>
       <div>
         <ToastContainer></ToastContainer>

@@ -3,17 +3,14 @@ import { FaBookOpen, FaDollarSign } from 'react-icons/fa';
 
 const Card = ({ card, handelSelectCard }) => {
 
-    const { cover_img, title, description, price, credit } = card
+    const { cover_img, title, description, price, credit } = card;
 
     return (
         <div>
-
             <div className="bg-white p-5 rounded-xl h-full">
-
                 <div className="flex justify-center items-center">
                     <img className="rounded-lg " src={cover_img} alt="" />
                 </div>
-
                 <div className="my-3">
                     <h4 className="text-md font-semibold my-3">{title}</h4>
                     <p className="text-xs font-normal text-gray-400 my-3">{description}</p>
@@ -28,13 +25,10 @@ const Card = ({ card, handelSelectCard }) => {
                         </div>
                     </div>
                 </div>
-
                 <div className='mt-auto'>
                     <button onClick={() => handelSelectCard(card)} className="text-sm text-white font-semibold py-2 w-full rounded-lg bg-blue-500 mt-auto">Select</button>
                 </div>
-
             </div>
-
         </div>
     );
 };

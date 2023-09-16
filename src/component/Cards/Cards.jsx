@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Cards = ({ handelSelectCard }) => {
 
-    const [cards, setCards] = useState()
+    const [cards, setCards] = useState();
 
     useEffect(() => {
         fetch('/data.json')
