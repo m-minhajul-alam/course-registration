@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
-import { FaBookOpen, FaDollarSign } from 'react-icons/fa';
+import { BsBook } from 'react-icons/bs';
+import { LuDollarSign } from 'react-icons/lu';
+
 
 const Card = ({ card, handelSelectCard }) => {
 
@@ -16,11 +18,11 @@ const Card = ({ card, handelSelectCard }) => {
                     <p className="text-xs font-normal text-gray-400 my-3">{description}</p>
                     <div className="flex items-center justify-between">
                         <div className="flex items-center">
-                            <span><FaDollarSign></FaDollarSign></span>
+                            <span><LuDollarSign></LuDollarSign></span>
                             <p className="ml-2 text-sm font-medium text-gray-400">{`Price: ${price}`}</p>
                         </div>
                         <div className="flex items-center">
-                            <span><FaBookOpen></FaBookOpen></span>
+                            <span><BsBook></BsBook></span>
                             <p className="ml-2 text-sm font-medium text-gray-400">{`Credit: ${credit}hr`}</p>
                         </div>
                     </div>
