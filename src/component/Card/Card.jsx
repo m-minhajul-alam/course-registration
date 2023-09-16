@@ -2,9 +2,7 @@ import PropTypes from 'prop-types';
 import { BsBook } from 'react-icons/bs';
 import { LuDollarSign } from 'react-icons/lu';
 
-
 const Card = ({ card, handelSelectCard }) => {
-
     const { coverImg, title, description, price, credit } = card;
 
     return (

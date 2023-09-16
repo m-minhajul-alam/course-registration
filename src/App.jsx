@@ -1,9 +1,8 @@
-import { useState } from 'react'
-import './App.css'
-import Cards from './component/Cards/Cards'
-import Carts from './component/Carts/Carts'
-import Header from './component/Header/Header'
-
+import { useState } from 'react';
+import './App.css';
+import Cards from './component/Cards/Cards';
+import Carts from './component/Carts/Carts';
+import Header from './component/Header/Header';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -15,7 +14,6 @@ function App() {
 
   const handelSelectCard = (card) => {
     const isExist = cards.find((item) => item.id == card.id);
-
     let priceCount = card.price;
     let creditCount = card.credit;
 
@@ -39,7 +37,6 @@ function App() {
       const remainingCreditHour = 20 - creditCount;
 
       if (creditCount > 20 && remainingCreditHour < 20) {
-
         return toast.warn('You reach your credit limit!', {
           position: "bottom-left",
           autoClose: 1000,
@@ -49,7 +46,6 @@ function App() {
           draggable: true,
           theme: "colored"
         });
-
 
       } else {
         setRemainingCreditHour(remainingCreditHour);

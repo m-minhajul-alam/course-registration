@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 const Cart = ({ card, index }) => {
-
     const { title } = card;
 
     return (
