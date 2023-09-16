@@ -21,7 +21,7 @@ const Card = ({ card, handelSelectCard }) => {
                         </div>
                         <div className="flex items-center">
                             <span><FaBookOpen></FaBookOpen></span>
-                            <p className="ml-2 text-sm font-medium text-gray-400">{`Cradit: ${credit}hr`}</p>
+                            <p className="ml-2 text-sm font-medium text-gray-400">{`Credit: ${credit}hr`}</p>
                         </div>
                     </div>
                 </div>
