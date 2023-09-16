@@ -3,13 +3,13 @@ import { FaBookOpen, FaDollarSign } from 'react-icons/fa';
 
 const Card = ({ card, handelSelectCard }) => {
 
-    const { cover_img, title, description, price, credit } = card;
+    const { coverImg, title, description, price, credit } = card;
 
     return (
         <div>
             <div className="bg-white p-5 rounded-xl h-full">
                 <div className="flex justify-center items-center">
-                    <img className="rounded-lg " src={cover_img} alt="" />
+                    <img className="rounded-lg " src={coverImg} alt="" />
                 </div>
                 <div className="my-3">
                     <h4 className="text-md font-semibold my-3">{title}</h4>
