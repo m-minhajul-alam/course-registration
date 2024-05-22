@@ -1,3 +1,5 @@
+# [Visit Live Link](http://course-registration.b8a7.surge.sh/)
+
 ### Project features.
 - The web allows users to browse and enroll in various courses.
 - The web provides users with a simple and user-friendly interface
